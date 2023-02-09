@@ -1,39 +1,47 @@
 // CREARE UN PULSANTE CON EVENTO CLICK CHE FACCIA APPARIRE LA GRIGLIA
+const buttonStart = document.getElementById('start-button')
+console.log(buttonStart)
 
-// Stabilire lato griglia e celle totali
+const difficulty = document.querySelector('form-control')
+console.log(difficulty)
 
-let latoGriglia = 10
-let celleTotali = latoGriglia ** 2
-console.log(latoGriglia, celleTotali)
+buttonStart.addEventListener('click', function() {
+    // Stabilire lato griglia e celle totali
 
-// Selezionare la griglia dal DOM
-const gridEl = document.querySelector ('.griglia')
-console.log(gridEl)
+    let latoGriglia = 10
+    let celleTotali = latoGriglia ** 2
+    console.log(latoGriglia, celleTotali)
 
-// Creare ciclo per mettere le celle in base a quante ne sono state selezionate
-for (let i = 0; i < celleTotali; i++) {
-    let numGrid = i + 1
-    console.log(numGrid)
+    // Selezionare la griglia dal DOM
+    const gridEl = document.querySelector ('.griglia')
+    console.log(gridEl)
 
-    const cellaString = `<div class="cella" style="width: calc(100% / ${ latoGriglia })"> ${ numGrid} </div>`
+    // Creare ciclo per mettere le celle in base a quante ne sono state selezionate
+    for (let i = 0; i < celleTotali; i++) {
+        let numGrid = i + 1
+        console.log(numGrid)
 
-    // Concatenare la cella all'elemento griglia
-    gridEl.innerHTML += cellaString
-}
+        const cellaString = `<div class="cella" style="width: calc(100% / ${ latoGriglia })"> ${ numGrid} </div>`
 
-// Prendere i div creati con classe .cella
-const celleElements = document.querySelectorAll('.cella')
-console.log(celleElements)
+        // Concatenare la cella all'elemento griglia
+        gridEl.innerHTML += cellaString
+    }
 
-// Creare un ciclo per andare a stampare il numero corrispondente a ognuna
-for (let i = 0; i < celleElements.length; i++) {
-    let numCell = i + 1
-    console.log(numCell)
+    // Prendere i div creati con classe .cella
+    const celleElements = document.querySelectorAll('.cella')
+    console.log(celleElements)
 
-    const cella = celleElements[i]
-
-    // Assegnargli il numero corretto al click
-    cella.addEventListener('click', function() {
+    // Creare un ciclo per andare a stampare il numero corrispondente a ognuna
+    for (let i = 0; i < celleElements.length; i++) {
+        let numCell = i + 1
         console.log(numCell)
-    })
-}
+
+        const cella = celleElements[i]
+
+        // Assegnargli il numero corretto al click
+        cella.addEventListener('click', function() {
+            console.log(numCell)
+        })
+    }
+})
+
