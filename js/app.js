@@ -20,6 +20,9 @@ buttonStart.addEventListener('click', function() {
     const gridEl = document.querySelector ('.griglia')
     console.log(gridEl)
 
+    // Cancellare il contenuto all'interno della griglia
+    gridEl.innerHTML = ''
+
     // Creare ciclo per mettere le celle in base a quante ne sono state selezionate
     for (let i = 0; i < celleTotali; i++) {
         let numGrid = i + 1
