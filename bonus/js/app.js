@@ -2,13 +2,18 @@
 const buttonStart = document.getElementById('start-button')
 console.log(buttonStart)
 
-// Chiedere all'utente la difficoltà del livello
-const difficulty = document.querySelector('.form-control')
+
 
 buttonStart.addEventListener('click', function() {
+    // Chiedere all'utente la difficoltà del livello
+    const difficulty = document.querySelector('.form-control')
 
     // Assegnare il valore della difficoltà scelta
     const inputDifficulty = difficulty.value
+    if (inputDifficulty < 1 || inputDifficulty > 10) {
+        console.error('I livelli sono da 1 a 10')
+        inputDifficulty = ''
+    }
     console.log(inputDifficulty)
 
     // Stabilire lato griglia e celle totali in base alla difficoltà
