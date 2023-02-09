@@ -2,13 +2,17 @@
 const buttonStart = document.getElementById('start-button')
 console.log(buttonStart)
 
-const difficulty = document.querySelector('form-control')
-console.log(difficulty)
+// Chiedere all'utente la difficoltà del livello
+const difficulty = document.querySelector('.form-control')
 
 buttonStart.addEventListener('click', function() {
-    // Stabilire lato griglia e celle totali
 
-    let latoGriglia = 10
+    // Assegnare il valore della difficoltà scelta
+    const inputDifficulty = difficulty.value
+    console.log(inputDifficulty)
+
+    // Stabilire lato griglia e celle totali in base alla difficoltà
+    let latoGriglia = inputDifficulty
     let celleTotali = latoGriglia ** 2
     console.log(latoGriglia, celleTotali)
 
@@ -19,7 +23,6 @@ buttonStart.addEventListener('click', function() {
     // Creare ciclo per mettere le celle in base a quante ne sono state selezionate
     for (let i = 0; i < celleTotali; i++) {
         let numGrid = i + 1
-        console.log(numGrid)
 
         const cellaString = `<div class="cella" style="width: calc(100% / ${ latoGriglia })"> ${ numGrid} </div>`
 
